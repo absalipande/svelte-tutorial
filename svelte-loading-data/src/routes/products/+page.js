@@ -1,10 +1,11 @@
-export const load = async (loadEvent) => {
-    const { fetch } = loadEvent
-	const title = 'List of available products';
-	const response = await fetch('http://localhost:4000/products');
-	const products = await response.json();
-	return {
-		title,
-		products
-	};
+import Product from './product.svelte';
+
+export const load = async ({ data }) => {
+	console.log('Universal load function called');
+	const notification = 'End of season sale!';
+	return { ...data, notification, Component: Product };
 };
+
+export const ssr = true;
+export const csr = false;
+export const prerender = true;
