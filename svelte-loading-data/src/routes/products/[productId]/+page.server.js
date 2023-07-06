@@ -1,3 +1,5 @@
+import { error } from '@sveltejs/kit'
+
 export const load = async ({ fetch, params }) => {
 	const { productId } = params;
 	if (productId > 3) {
